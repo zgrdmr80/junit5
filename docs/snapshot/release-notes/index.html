@@ -673,15 +673,31 @@ on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Field predicates are no longer applied eagerly while searching the type hierarchy. This
-reverts changes made in 5.10.1 that affected <code>findFields(&#8230;&#8203;)</code> and <code>streamFields(&#8230;&#8203;)</code>
-in <code>ReflectionSupport</code> as well as <code>findAnnotatedFields(&#8230;&#8203;)</code> and
-<code>findAnnotatedFieldValues(&#8230;&#8203;)</code> in <code>AnnotationSupport</code>.</p>
+<p>Field predicates are no longer applied eagerly while searching the type hierarchy.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>See issues <a href="https://github.com/junit-team/junit5/issues/3638">#3638</a> and
-<a href="https://github.com/junit-team/junit5/issues/3553">#3553</a> for details.</p>
+<p>This reverts changes made in 5.10.1 that affected <code>findFields(&#8230;&#8203;)</code> and
+<code>streamFields(&#8230;&#8203;)</code> in <code>ReflectionSupport</code> as well as <code>findAnnotatedFields(&#8230;&#8203;)</code> and
+<code>findAnnotatedFieldValues(&#8230;&#8203;)</code> in <code>AnnotationSupport</code>.</p>
+</li>
+<li>
+<p>See issue <a href="https://github.com/junit-team/junit5/issues/3638">#3638</a> for details.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Method predicates are no longer applied eagerly while searching the type hierarchy.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This reverts changes made in 5.10.1 that affected <code>findMethods(&#8230;&#8203;)</code> and
+<code>streamMethods(&#8230;&#8203;)</code> in <code>ReflectionSupport</code> as well as <code>findAnnotatedMethods(&#8230;&#8203;)</code> in
+<code>AnnotationSupport</code>.</p>
+</li>
+<li>
+<p>See issue <a href="https://github.com/junit-team/junit5/issues/3600">#3600</a> for details.</p>
 </li>
 </ul>
 </div>
@@ -697,7 +713,15 @@ in <code>ReflectionSupport</code> as well as <code>findAnnotatedFields(&#8230;&#
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>JUnit Jupiter once again properly detects when a <code>@Test</code> method is overridden in a
+subclass.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>See issue <a href="https://github.com/junit-team/junit5/issues/3600">#3600</a> for details.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -709,13 +733,30 @@ in <code>ReflectionSupport</code> as well as <code>findAnnotatedFields(&#8230;&#
 <li>
 <p>A package-private static field annotated with <code>@TempDir</code> is once again <em>shadowed</em> by a
 non-static field annotated with <code>@TempDir</code> when the non-static field resides in a
-different package and has the same name as the static field. This reverts changes made
-in 5.10.1.</p>
+different package and has the same name as the static field.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>See issues <a href="https://github.com/junit-team/junit5/issues/3638">#3638</a> and
-<a href="https://github.com/junit-team/junit5/issues/3553">#3553</a> for details.</p>
+<p>This reverts changes made in 5.10.1.</p>
+</li>
+<li>
+<p>See issue <a href="https://github.com/junit-team/junit5/issues/3638">#3638</a> for details.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A package-private class-level lifecycle method annotated with <code>@BeforeAll</code> or
+<code>@AfterAll</code> is once again <em>shadowed</em> by a method-level lifecycle method annotated with
+<code>@BeforeEach</code> or <code>@AfterEach</code> when the method-level lifecycle method resides in a
+different package and has the same name as the class-level lifecycle method.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This reverts changes made in 5.10.1.</p>
+</li>
+<li>
+<p>See issue <a href="https://github.com/junit-team/junit5/issues/3600">#3600</a> for details.</p>
 </li>
 </ul>
 </div>
