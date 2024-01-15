@@ -641,12 +641,12 @@ details.</p>
 <p><strong>Date of Release:</strong> ❓</p>
 </div>
 <div class="paragraph">
-<p><strong>Scope:</strong> minor bug fixes since 5.10.1.</p>
+<p><strong>Scope:</strong> minor bug fixes and changes since 5.10.1.</p>
 </div>
 <div class="paragraph">
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit5/milestone/73?closed=1">5.10.2</a> milestone page in the
-JUnit repository on GitHub.</p>
+<a href="https://github.com/junit-team/junit5/milestone/73?closed=1">5.10.2</a> milestone page in the JUnit repository
+on GitHub.</p>
 </div>
 <div class="sect2">
 <h3 id="release-notes-5.10.2-junit-platform"><a class="anchor" href="#release-notes-5.10.2-junit-platform"></a>JUnit Platform</h3>
@@ -655,12 +655,33 @@ JUnit repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allow <code>junit-platform-launcher</code> to be used as a Java module when
+<p>The <code>junit-platform-launcher</code> may now be used as a Java module when
 <code>junit.platform.launcher.interceptors.enabled</code> is set to <code>true</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>See <a href="https://github.com/junit-team/junit5/issues/3561">issue 3561</a> for details.</p>
+<p>See issue <a href="https://github.com/junit-team/junit5/issues/3561">#3561</a> for details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deprecations-and-breaking-changes"><a class="anchor" href="#deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Field predicates are no longer applied eagerly while searching the type hierarchy. This
+reverts changes made in 5.10.1 that affected <code>findFields(&#8230;&#8203;)</code> and <code>streamFields(&#8230;&#8203;)</code>
+in <code>ReflectionSupport</code> as well as <code>findAnnotatedFields(&#8230;&#8203;)</code> and
+<code>findAnnotatedFieldValues(&#8230;&#8203;)</code> in <code>AnnotationSupport</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>See issues <a href="https://github.com/junit-team/junit5/issues/3638">#3638</a> and
+<a href="https://github.com/junit-team/junit5/issues/3553">#3553</a> for details.</p>
 </li>
 </ul>
 </div>
@@ -676,7 +697,28 @@ JUnit repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>none so far</em></p>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deprecations-and-breaking-changes-2"><a class="anchor" href="#deprecations-and-breaking-changes-2"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>A package-private static field annotated with <code>@TempDir</code> is once again <em>shadowed</em> by a
+non-static field annotated with <code>@TempDir</code> when the non-static field resides in a
+different package and has the same name as the static field. This reverts changes made
+in 5.10.1.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>See issues <a href="https://github.com/junit-team/junit5/issues/3638">#3638</a> and
+<a href="https://github.com/junit-team/junit5/issues/3553">#3553</a> for details.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -689,7 +731,7 @@ JUnit repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>none so far</em></p>
+<p>❓</p>
 </li>
 </ul>
 </div>
