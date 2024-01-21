@@ -7683,10 +7683,11 @@ Platform from the console. For example, it can be used to run JUnit Vintage and 
 Jupiter tests and print test execution results to the console.</p>
 </div>
 <div class="paragraph">
-<p>An executable <code>junit-platform-console-standalone-1.11.0-SNAPSHOT.jar</code> with all
-dependencies included is published in the <a href="https://search.maven.org/">Maven Central</a> repository under the
+<p>An executable <em>Fat JAR</em> (<code>junit-platform-console-standalone-1.11.0-SNAPSHOT.jar</code>) that
+contains the contents of all of its dependencies is published in the <a href="https://search.maven.org/">Maven Central</a>
+repository under the
 <a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone">junit-platform-console-standalone</a>
-directory. It includes the following dependencies:</p>
+directory. It contains the contents of the following artifacts:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7742,6 +7743,35 @@ directory. It includes the following dependencies:</p>
 <p><code>org.opentest4j:opentest4j:1.3.0</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Since the <code>junit-platform-console-standalone</code> JAR contains the contents of all of its
+dependencies, its Maven POM does not declare any dependencies.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, it is not very likely that you would need to include a dependency on the
+<code>junit-platform-console-standalone</code> artifact in your project&#8217;s Maven POM or Gradle build
+script. On the contrary, the executable <code>junit-platform-console-standalone</code> JAR is
+typically invoked directly from the command line or a shell script without a build script.</p>
+</div>
+<div class="paragraph">
+<p>If you need to declare dependencies in your build script on some of the artifacts
+contained in the <code>junit-platform-console-standalone</code> artifact, you should declare
+dependencies only on the JUnit artifacts that are used in your project. To simplify
+dependency management of JUnit artifacts in your build, you may wish to use the
+<code>junit-jupiter</code> aggregator artifact or <code>junit-bom</code>. See <a href="#dependency-metadata">Dependency Metadata</a> for
+details.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You can <a href="https://docs.oracle.com/javase/tutorial/deployment/jar/run.html">run</a> the
@@ -12597,7 +12627,7 @@ See <a href="#running-tests-console-launcher">Console Launcher</a> for details.<
 </dd>
 <dt class="hdlist1"><code>junit-platform-console-standalone</code></dt>
 <dd>
-<p>An executable JAR with all dependencies included is provided in Maven Central under the
+<p>An executable <em>Fat JAR</em> that contains all dependencies is provided in Maven Central under the
 <a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone">junit-platform-console-standalone</a>
 directory. See <a href="#running-tests-console-launcher">Console Launcher</a> for details.</p>
 </dd>
