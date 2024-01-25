@@ -100,10 +100,11 @@ loadScripts(document, 'script');</script>
 </span><span class="modifiers">public class </span><span class="element-name type-name-label">DiscoverySelectorResolver</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block"><code>DiscoverySelectorResolver</code> resolves <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a>
- for containers and tests selected by DiscoverySelectors with the help of the
- <code>JavaElementsResolver</code>.
+ for containers and tests selected by <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelectors</code></a>, with the help of an <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/EngineDiscoveryRequestResolver.html" title="class in org.junit.platform.engine.support.discovery"><code>EngineDiscoveryRequestResolver</code></a>.
 
- <p>This class is the only public entry point into the discovery package.</div>
+ <p>This is an internal utility which is only <code>public</code> in order to provide
+ the <a href="../JupiterTestEngine.html" title="class in org.junit.jupiter.engine"><code>JupiterTestEngine</code></a> access
+ to the functionality of the <code>discovery</code> package.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.0</dd>
