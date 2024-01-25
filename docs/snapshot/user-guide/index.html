@@ -2075,6 +2075,17 @@ annotation, via one of the annotations discussed in
 <a href="#writing-tests-conditional-execution">Conditional Test Execution</a>, or via a custom <a href="#extensions-conditions"><code>ExecutionCondition</code></a>.</p>
 </div>
 <div class="paragraph">
+<p>When <code>@Disabled</code> is applied at the class level, all test methods within that class are
+automatically disabled as well.</p>
+</div>
+<div class="paragraph">
+<p>If a test method is disabled via <code>@Disabled</code>, that prevents execution of the test method
+and method-level lifecycle callbacks such as <code>@BeforeEach</code> methods, <code>@AfterEach</code> methods,
+and corresponding extension APIs. However, that does not prevent the test class from being
+instantiated, and it does not prevent the execution of class-level lifecycle callbacks
+such as <code>@BeforeAll</code> methods, <code>@AfterAll</code> methods, and corresponding extension APIs.</p>
+</div>
+<div class="paragraph">
 <p>Here&#8217;s a <code>@Disabled</code> test class.</p>
 </div>
 <div class="listingblock">
@@ -2152,16 +2163,27 @@ superclass is <code>@Disabled</code>, you must redeclare <code>@Disabled</code> 
 <h3 id="writing-tests-conditional-execution"><a class="anchor" href="#writing-tests-conditional-execution"></a>2.8. Conditional Test Execution</h3>
 <div class="paragraph">
 <p>The <a href="#extensions-conditions"><code>ExecutionCondition</code></a> extension API in JUnit Jupiter allows
-developers to either <em>enable</em> or <em>disable</em> a container or test based on certain
+developers to either <em>enable</em> or <em>disable</em> a test class or test method based on certain
 conditions <em>programmatically</em>. The simplest example of such a condition is the built-in
 <code><a href="https://github.com/junit-team/junit5/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/DisabledCondition.java">DisabledCondition</a></code> which supports the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Disabled.html">@Disabled</a></code> annotation (see
-<a href="#writing-tests-disabling">Disabling Tests</a>). In addition to <code>@Disabled</code>, JUnit Jupiter also supports
-several other annotation-based conditions in the <code>org.junit.jupiter.api.condition</code>
-package that allow developers to enable or disable containers and tests <em>declaratively</em>.
-When multiple <code>ExecutionCondition</code> extensions are registered, a container or test is
-disabled as soon as one of the conditions returns <em>disabled</em>. If you wish to provide
+<a href="#writing-tests-disabling">Disabling Tests</a>).</p>
+</div>
+<div class="paragraph">
+<p>In addition to <code>@Disabled</code>, JUnit Jupiter also supports several other annotation-based
+conditions in the <code>org.junit.jupiter.api.condition</code> package that allow developers to
+enable or disable test classes and test methods <em>declaratively</em>. If you wish to provide
 details about why they might be disabled, every annotation associated with these built-in
 conditions has a <code>disabledReason</code> attribute available for that purpose.</p>
+</div>
+<div class="paragraph">
+<p>When multiple <code>ExecutionCondition</code> extensions are registered, a test class or test method
+is disabled as soon as one of the conditions returns <em>disabled</em>. If a test class is
+disabled, all test methods within that class are automatically disabled as well. If a test
+method is disabled, that prevents execution of the test method and method-level lifecycle
+callbacks such as <code>@BeforeEach</code> methods, <code>@AfterEach</code> methods, and corresponding extension
+APIs. However, that does not prevent the test class from being instantiated, and it does
+not prevent the execution of class-level lifecycle callbacks such as <code>@BeforeAll</code> methods,
+<code>@AfterAll</code> methods, and corresponding extension APIs.</p>
 </div>
 <div class="paragraph">
 <p>See <a href="#extensions-conditions"><code>ExecutionCondition</code></a> and the following sections for

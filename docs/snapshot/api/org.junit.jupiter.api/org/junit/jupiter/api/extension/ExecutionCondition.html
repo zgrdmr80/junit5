@@ -117,10 +117,12 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
  to determine if a given container or test should be executed based on the
  supplied <a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a>.
 
- <p>If an <code>ExecutionCondition</code> <a href="ConditionEvaluationResult.html#disabled(java.lang.String)">disables</a> a test method, that does not prevent the test class from being
- instantiated. Rather, it prevents the execution of the test method and
+ <p>If an <code>ExecutionCondition</code> <a href="ConditionEvaluationResult.html#disabled(java.lang.String)">disables</a> a test method, that prevents execution of the test method and
  method-level lifecycle callbacks such as <code>@BeforeEach</code> methods,
- <code>@AfterEach</code> methods, and corresponding extension APIs.
+ <code>@AfterEach</code> methods, and corresponding extension APIs. However, that
+ does not prevent the test class from being instantiated, and it does not prevent
+ the execution of class-level lifecycle callbacks such as <code>@BeforeAll</code>
+ methods, <code>@AfterAll</code> methods, and corresponding extension APIs.
 
  <h2 id="constructor-requirements-heading">Constructor Requirements</h2>
 
