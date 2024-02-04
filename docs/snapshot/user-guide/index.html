@@ -3471,7 +3471,7 @@ For example, you can write tests for how implementations of <code>Object.equals<
     <span class="nd">@Test</span>
     <span class="k">default</span> <span class="kt">void</span> <span class="nf">valueDoesNotEqualNull</span><span class="o">()</span> <span class="o">{</span>
         <span class="no">T</span> <span class="n">value</span> <span class="o">=</span> <span class="n">createValue</span><span class="o">();</span>
-        <span class="n">assertFalse</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="kc">null</span><span class="o">));</span>
+        <span class="n">assertNotEquals</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
@@ -5522,7 +5522,7 @@ a nested hierarchy of dynamic tests utilizing <code>DynamicContainer</code>.</p>
     <span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">DynamicTest</span><span class="o">&gt;</span> <span class="nf">dynamicTestsFromIntStream</span><span class="o">()</span> <span class="o">{</span>
         <span class="c1">// Generates tests for the first 10 even integers.</span>
         <span class="k">return</span> <span class="nc">IntStream</span><span class="o">.</span><span class="na">iterate</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">2</span><span class="o">).</span><span class="na">limit</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">mapToObj</span><span class="o">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">dynamicTest</span><span class="o">(</span><span class="s">"test"</span> <span class="o">+</span> <span class="n">n</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertTrue</span><span class="o">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)));</span>
+            <span class="o">.</span><span class="na">mapToObj</span><span class="o">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">dynamicTest</span><span class="o">(</span><span class="s">"test"</span> <span class="o">+</span> <span class="n">n</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="o">)));</span>
     <span class="o">}</span>
 
     <span class="nd">@TestFactory</span>
