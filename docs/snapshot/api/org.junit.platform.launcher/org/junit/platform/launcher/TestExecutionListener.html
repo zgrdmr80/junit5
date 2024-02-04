@@ -111,6 +111,12 @@ loadScripts(document, 'script');</script>
  events are called in reverse order. Test case execution won't start before
  all <a href="#executionStarted(org.junit.platform.launcher.TestIdentifier)"><code>executionStarted(TestIdentifier)</code></a> calls have returned.
 
+ <p>If an exception is thrown by an implementation of a method of this
+ interface, the exception will be caught and logged unless it is deemed
+ <a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/util/UnrecoverableExceptions.html" title="class in org.junit.platform.commons.util">unrecoverable</a>. In consequence, a
+ <code>TestExecutionListener</code> cannot cause test execution to fail or abort it
+ early by throwing an exception.
+
  <p>JUnit provides two example implementations.
 
  <ul>
