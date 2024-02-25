@@ -108,6 +108,12 @@ loadScripts(document, 'script');</script>
  methods that also require <code>READ</code> access but not at the same time as any
  other test that requires <code>READ_WRITE</code> access.
 
+ <p>This guarantee extends to lifecycle methods of a test class or method. For
+ example, if a test method is annotated with a <code>@ResourceLock</code>
+ annotation the "lock" will be acquired before any
+ <a href="../BeforeEach.html" title="annotation interface in org.junit.jupiter.api"><code>@BeforeEach</code></a> methods are executed and released after all
+ <a href="../AfterEach.html" title="annotation interface in org.junit.jupiter.api"><code>@AfterEach</code></a> methods have been executed.
+
  <p>This annotation can be repeated to declare the use of multiple shared resources.
 
  <p>Since JUnit Jupiter 5.4, this annotation is <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Inherited.html" title="class or interface in java.lang.annotation" class="external-link">inherited</a>

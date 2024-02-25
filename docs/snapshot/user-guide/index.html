@@ -6271,7 +6271,10 @@ System Property.</p>
 <div class="paragraph">
 <p>When access to shared resources is declared using the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation, the
 JUnit Jupiter engine uses this information to ensure that no conflicting tests are run in
-parallel.</p>
+parallel. This guarantee extends to lifecycle methods of a test class or method. For
+example, if a test method is annotated with a <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation, the "lock" will
+be acquired before any <code>@BeforeEach</code> methods are executed and released after all
+<code>@AfterEach</code> methods have been executed.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -7754,9 +7757,6 @@ directory. It contains the contents of the following artifacts:</p>
 </li>
 <li>
 <p><code>org.junit.platform:junit-platform-suite-engine:1.11.0-SNAPSHOT</code></p>
-</li>
-<li>
-<p><code>org.junit.platform:junit-platform-suite:1.11.0-SNAPSHOT</code></p>
 </li>
 <li>
 <p><code>org.junit.vintage:junit-vintage-engine:5.11.0-SNAPSHOT</code></p>
